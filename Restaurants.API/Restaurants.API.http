@@ -1,0 +1,108 @@
+@RestaurantsAPI_HostAddress = https://localhost:7005
+@host = https://localhost
+@port = 7005
+@token = CfDJ8PHZ-mUBmeRPpjctFUrC_bN-CAN8vEzkkJ5T9dRaQUK0wiZ5mlrI5F9Zc4Y7yFWGZgYcMcyQY6jKbM0g3NFmouA47kFZNfb5Z4PUCUaUGHjjAWlIlsDYST_UZlypNo_dKI-ME2lzqJNczYr-146UElkFiVUY_HMZF4QAmrZmFZ7GqEU9SMNp9-8tfPZvE7ov6blAj4pVelcwo3cRfKq_YkWNF7KkzCUQvBtIRKe68PfNJHib6y3FIRgftUfbRMBOpV1NgDcLzNWXalff9rU55xzNzfkNkb9fMjelo46EQnf3uyf28NHJNQAAK5LNPjlQ3XTLEbNCKYELAAzX9AzX1incXxlCQOQmpA-JT4GzZgB3kb_3NrPQGfF-ztaq1jL879TT8Fid3iq029rUTIsR1w--NgRtFAw01gj3bcJ2_RxOaSx3CyOy8YBR3E03vxGHCf_Ot6DRUDWj_nHZaKHZYp1ZXx4b6Fu-Rej8DkgiwUqqfWj1Del7avxKXxTYuurpEhMAx-TQJ2eDHTDi0jTgOCeztAw0Ygk0-wfnkT2Axls6cZfWGX4ndTcHPuosjPWWJMpBuzKFvAuSlkhc0E-4B8VJcx9M3m_nBo3RRR98owF0tm6BMGa0Tb6UuaYOcWPLkOP3-ZUCaZ3P4gXkprREU2hDs4gMmJ9GMv5QWKZSen77EMvRR0fy5mm3-oBtUWBOTOVRr7pPnkQ8GYYIKnHZaNT6N88AqRTuYY9yTf9PqA0cKz4qW8i8WGdkYDMPzk1L1MFXkW7DxR7J4rr6mLg3quN4z-Tl1FITK9UyGfCD0labQ1wV0JBUXqxH1aq_cs4E3mBdM8gvX025blmxlmCbQHBB5DqYz5Fjjj6FbAkcUHVPbEkwv6hp0CNEywKstoGtSA
+
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants?searchPhrase=&pageSize=5&pageNumber=1&sortby=Name
+Authorization: Bearer {{token}}
+
+###
+
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants/3
+
+###
+
+DELETE {{RestaurantsAPI_HostAddress}}/api/restaurants/5
+
+###
+
+PATCH {{RestaurantsAPI_HostAddress}}/api/restaurants/7
+Content-Type: application/json
+
+{
+  "Name": "Comida Corrida",
+  "Description": "Prueba Update",
+  "HasDelvery": false
+}
+
+###
+
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+
+}
+
+###
+
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Name": "Alta cocina del Mandril",
+  "Description": "Una experiencia culinaria mortal",
+  "Category": "Mexican",
+  "HasDelivery": true,
+  "ContactEmail": "mandril@test.com",
+  "ContactNumber": "555-123-4567",
+  "City": "Metropolis",
+  "Street": "456 Gourmet Avenue",
+  "PostalCode": "54-321"
+}
+
+###
+
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants/3
+
+###
+
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants/10/dishes
+Content-Type: application/json
+
+{
+  "Name": "Spaghetti Bolognese",
+  "Description": "Classic Italian pasta dish with meatballs",
+  "Price": 12.99,
+  "KiloCalories": 750
+}
+
+###
+
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants/10/dishes
+Authorization: Bearer {{token}}
+
+###
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants/3/dishes/4
+
+###
+DELETE {{RestaurantsAPI_HostAddress}}/api/restaurants/3000/dishes
+
+###
+POST {{RestaurantsAPI_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "#Password1"
+}
+
+###
+POST {{RestaurantsAPI_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "#Password1"
+}
+
+###
+PATCH {{RestaurantsAPI_HostAddress}}/api/identity/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Nationality": "French",
+  "DateOfBirth": "2010-01-01"
+}
