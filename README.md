@@ -1,2 +1,2 @@
-# Curso-API_REST
+# Restaurantes-API
 
